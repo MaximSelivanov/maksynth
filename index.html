@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" type="text/css" href="styles/app.less" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <script type="module" src="scripts/app.js"></script>
+    <title>MakSYNTH</title>
+</head>
+<body>
+    <div class="synth__wrapper">
+        <h1 class="synth-name">MakSYNTH</h1>
+        <h2 class="synth-type">analog modeling synthesizer</h2>
+        <button class="about-button">ABOUT</button>
+        <button class="reset-button">RESET</button>
+        <fieldset class="module oscillators">
+            <legend>OSCILLATORS</legend>
+            <fieldset class="module oscillator-one">
+                <legend>OSCILLATOR I</legend>
+                <div class="oscillator-one__wrapper">
+                    <div class="waveworm">
+                        <div class="oscillator-one__on">
+                            <input type="checkbox" name="oscillator-one__on-button" id="on-one" checked>
+                            <label for="on-one">ON</label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-one__waveform" value="sine" id="sine-one" >
+                            <label for="sine-one">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 506 302" fill="none" class="wavetype">
+                                <path d="M3 151C40.3333 39.3333 142.6 -117 253 151C363.4 419 465.667 262.667 503 151" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-one__waveform" value="square" id="square-one"">
+                            <label for="square-one">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 506 306" fill="none" class="wavetype">
+                                    <path d="M503 153V303H254V3H3V80V153" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-one__waveform" value="triangle" id="triangle-one">
+                            <label for="triangle-one">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 504 307" fill="none" class="wavetype">
+                                    <path d="M2 305L253 4L502 305" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-one__waveform" value="sawtooth" id="saw-one"  checked>
+                            <label for="saw-one">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 505 310" fill="none" class="wavetype">
+                                    <path d="M2 307L502 5V307" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="detune">
+                        <label for="">detune</label>
+                        <input type="range" class="detune-one__slider" min="-200" max="200" step="10" value="0">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="module oscillator-two">
+                <legend>OSCILLATOR II</legend>
+                <div class="oscillator-two__wrapper">
+                    <div class="waveworm">
+                        <div class="oscillator-two__on">
+                            <input type="checkbox" name="oscillator-two__on-button" id="on-two" checked>
+                            <label for="on-two">ON</label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-two__waveform" value="sine" id="sine-two">
+                            <label for="sine-two">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 506 302" fill="none" class="wavetype">
+                                <path d="M3 151C40.3333 39.3333 142.6 -117 253 151C363.4 419 465.667 262.667 503 151" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-two__waveform" value="square" id="square-two"">
+                            <label for="square-two">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 506 306" fill="none" class="wavetype">
+                                    <path d="M503 153V303H254V3H3V80V153" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-two__waveform" value="triangle" id="triangle-two">
+                            <label for="triangle-two">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 504 307" fill="none" class="wavetype">
+                                    <path d="M2 305L253 4L502 305" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="wave-button">
+                            <input type="radio" name="oscillator-two__waveform" value="sawtooth" id="saw-two" checked>
+                            <label for="saw-two">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 505 310" fill="none" class="wavetype">
+                                    <path d="M2 307L502 5V307" stroke="white" stroke-width="30"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="detune">
+                        <label for="detune-one__slider">detune</label>
+                        <input type="range" name="detune-one__slider" class="detune-one__slider" min="-100" max="100" step="10" value="0">
+                    </div>
+                </div>
+            </fieldset>
+        </fieldset>
+        <fieldset class="module filter">
+            <legend>FILTER</legend>
+            <div class="filter__wrapper">
+                <div class="frequency">
+                    <label for="frequency-slider">frequency</label>
+                    <input type="range" id="frequency-slider" min="0" value="1" max="1" step="0.01">
+                </div>
+                <div class="quality">
+                    <label for="quality-slider">quality</label>
+                    <input type="range" id="quality-slider" min="0" value="0" max="1" step="0.01">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="module lfo">
+            <legend>LFO</legend>
+            <div class="lfo__wrapper">
+                <div class="rate">
+                    <label for="">rate</label>
+                    <input type="range" name="rate-slider" id="rate-slider" min="0" value="0" max="30" step="0.01">
+                </div>
+                <div class="depth">
+                    <label for="depth-slider">depth</label>
+                    <input type="range" name="depth-slider" id="depth-slider" min="0" value="0" max="10" step="0.01">
+                </div>
+                <div class="wave-button">
+                    <input type="radio" name="lfo__waveform" value="sine" id="sine-lfo"  checked>
+                    <label for="sine-lfo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 506 302" fill="none" class="wavetype">
+                        <path d="M3 151C40.3333 39.3333 142.6 -117 253 151C363.4 419 465.667 262.667 503 151" stroke="white" stroke-width="30"/>
+                        </svg>
+                    </label>
+                </div>
+                <div class="wave-button">
+                    <input type="radio" name="lfo__waveform" value="square" id="square-lfo"">
+                    <label for="square-lfo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 506 306" fill="none" class="wavetype">
+                            <path d="M503 153V303H254V3H3V80V153" stroke="white" stroke-width="30"/>
+                        </svg>
+                    </label>
+                </div>
+                <div class="wave-button">
+                    <input type="radio" name="lfo__waveform" value="triangle" id="triangle-lfo">
+                    <label for="triangle-lfo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 504 307" fill="none" class="wavetype">
+                            <path d="M2 305L253 4L502 305" stroke="white" stroke-width="30"/>
+                        </svg>
+                    </label>
+                </div>
+                <div class="wave-button">
+                    <input type="radio" name="lfo__waveform" value="sawtooth" id="saw-lfo">
+                    <label for="saw-lfo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 505 310" fill="none" class="wavetype">
+                            <path d="M2 307L502 5V307" stroke="white" stroke-width="30"/>
+                        </svg>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="module adsr">
+            <legend>ADSR</legend>
+            <div class="adsr__wrapper">
+                <div class="attack">
+                    <label for="">attack</label>
+                    <input type="range" id="attack-slider" min="0" value="0.005" max="3" step="0.005">
+                </div>
+                <div class="decay">
+                    <label for="">decay</label>
+                    <input type="range" id="decay-slider" min="0" value="0.1" max="2" step="0.1">
+                </div>
+                <div class="sustain">
+                    <label for="">sustain</label>
+                    <input type="range" id="sustain-slider" min="0" value="80" max="100" step="10">
+                </div>
+                <div class="release">
+                    <label for="">release</label>
+                    <input type="range" id="release-slider" min="0.3" value="0.1" max="4" step="0.1">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="module delay">
+            <legend>DELAY</legend>
+            <div class="delay__wrapper">
+                <div class="time">
+                    <label for="time-slider">time</label>
+                    <input type="range" name="time-slider" id="delaytime-slider" min="0" value="0.01" max="1" step="0.01">
+                </div>
+                <div class="feedback">
+                    <label for="feedback-slider">feedback</label>
+                    <input type="range" name="feedback-slider" id="delayfeedback-slider" min="0" value="0.01" max="0.9" step="0.01">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="module volume">
+            <legend>VOLUME</legend>
+            <div class="volume">
+                <label for="">volume</label>
+                <input type="range" id="volume-slider" min="0" value="0.3" max="1" step="0.01">
+            </div>
+        </fieldset>
+        <fieldset class="module visualisation">
+            <legend>VISUALISATION</legend>
+            <canvas class="visualisation" width="500" height="220"></canvas>
+        </fieldset>
+        <p class="model-index">JS-2022</p>
+        <fieldset class="module keyboard">
+            <legend>KEYBOARD</legend>
+            <div class="piano" id="piano">
+                <div data-key="68"  class="piano-key" data-letter="D" data-note="C4"></div>
+                <div data-key="70"  class="piano-key" data-letter="F" data-note="D4"></div>
+                <div data-key="71"  class="piano-key" data-letter="G" data-note="E4"></div>
+                <div data-key="72"  class="piano-key" data-letter="H" data-note="F4"></div>
+                <div data-key="74"  class="piano-key" data-letter="J" data-note="G4"></div>
+                <div data-key="75"  class="piano-key" data-letter="K" data-note="A4"></div>
+                <div data-key="76"  class="piano-key" data-letter="L" data-note="B4"></div>
+                <div class="keys-sharp">
+                  <div data-key="82"  class="piano-key sharp" data-letter="R" data-note="C#4"></div>
+                  <div data-key="84"  class="piano-key sharp" data-letter="T" data-note="D#4"></div>
+                  <div class="piano-key sharp none"></div>
+                  <div data-key="85"  class="piano-key sharp" data-letter="U" data-note="F#4"></div>
+                  <div data-key="73"  class="piano-key sharp" data-letter="I" data-note="G#4"></div>
+                  <div data-key="79"  class="piano-key sharp" data-letter="O" data-note="A#4"></div>
+                </div>
+            </div>
+        </fieldset> 
+    </div> 
+    <div class="modal">
+        <div id="synthModal" class="modal-window">
+            Hi!
+            <br>
+            This is the analog modeling synthesizer application
+            <br>
+            - MakSYNTH -
+            <br>
+            Here are the basic modules of an analog synthesizer
+            such as oscillators, lowpass filter, lfo, 
+            ADSR envelope and the effect section with delay.
+            <br>
+            Also here you can find sound visualisation and keyboard, 
+            <br>
+            of course.
+            <br>
+            You can use a mouse, a computer keyboard and a midi keyboard to play this synth.
+            <br>
+            To play on computer keyboard, please use keys:
+            <br>
+            <br>
+            <span id="computer-keyboard">DRFTGHUJIKOL</span>
+            <br>
+            <br>
+            Let's start and enjoy!
+            <button id="start">START</button>
+        </div>
+        
+    </div>
+</body>
+</html>

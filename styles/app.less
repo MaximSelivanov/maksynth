@@ -1,0 +1,364 @@
+@import "reset";
+
+@grey: #313940;
+@violet: #cc00ff;
+@rose: #ff00ff;
+@blue: #00aff9;
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: sans-serif !important;
+}
+
+body {
+  min-width: 700px;
+  background-color: @grey;
+  color: @violet;
+}
+
+.synth-name {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.synth-type,
+.model-index {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.synth__wrapper {
+  display: grid;
+  grid-template-columns: 400px 190px 190px 190px 190px;
+  grid-template-areas: 
+  "synth synth synth about reset"
+  "osc filter lfo adsr delay"
+  "type index volume volume volume"
+  "key key visual visual visual";
+  gap: 5px;              
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.reset-button {
+  grid-area: reset;
+}
+
+.about-button {
+  grid-area: about;
+}
+.oscillators {
+  display: flex;
+  grid-area: osc;
+}
+
+.synth-type {
+  grid-area: type;
+}
+
+.filter {
+  grid-area: filter;
+}
+
+.lfo {
+  grid-area: lfo;
+}
+
+.adsr {
+  grid-area: adsr;
+}
+
+.delay {
+  grid-area: delay;
+}
+
+.volume {
+  grid-area: volume;
+}
+
+.visualisation {
+  grid-area: visual;
+}
+
+.model-index {
+  grid-area: index;
+}
+
+.keyboard {
+  grid-area: key;
+}
+
+.module { 
+  text-align: center;
+  border-color: @rose;
+  border-radius: 10px; 
+  border-width: 3px;
+}
+
+.oscillator-one__on,
+.oscillator-two__on {
+  margin: 0 30px;
+}
+.wave-button,
+.oscillator-one__on,
+.oscillator-two__on {
+	display: inline-block;
+}
+
+.wave-button input[type=radio],
+.oscillator-one__on input[type=checkbox],
+.oscillator-two__on input[type=checkbox] {
+	display: none;
+}
+.wave-button label,
+.oscillator-one__on label,
+.oscillator-two__on label,
+.reset-button,
+.about-button {
+	display: inline-block;
+	cursor: pointer;
+	padding: 5px;
+	margin: 8px;
+	border: 1px solid #999;
+	border-radius: 6px;
+	user-select: none;
+}
+ 
+.wave-button input[type=radio]:checked + label,
+.oscillator-one__on input[type=checkbox]:checked + label,
+.oscillator-two__on input[type=checkbox]:checked + label,
+.reset-button,
+.about-button {
+	background: @blue;
+}
+ 
+input[type=range] {
+  width: 100%;
+  margin: 8.4px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: @blue;
+  border: 0;
+  border-radius: 17px;
+  width: 100%;
+  height: 10.2px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -8.4px;
+  width: 16px;
+  height: 27px;
+  background: @rose;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: @blue;
+}
+input[type=range]::-moz-range-track {
+  background: @blue;
+  border: 0;
+  border-radius: 17px;
+  width: 100%;
+  height: 10.2px;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 27px;
+  background: @rose;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 8.4px 0;
+  color: transparent;
+  width: 100%;
+  height: 10.2px;
+  cursor: pointer;
+}
+input[type=range]::-ms-fill-lower {
+  background: @blue;
+  border: 0;
+  border-radius: 34px;
+}
+input[type=range]::-ms-fill-upper {
+  background: @blue;
+  border: 0;
+  border-radius: 34px;
+}
+input[type=range]::-ms-thumb {
+  width: 16px;
+  height: 27px;
+  background: @rose;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.piano {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 270px;
+	max-width: 560px;
+}
+.piano-key {
+	position: relative;
+	width: 80px;
+	height: 270px;
+	background-color: rgba(255, 255, 255, 0.85);
+	border: 4px solid @grey;
+	border-radius: 0px 0px 12px 12px;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.piano-key:hover {
+	background-color: #fff;
+}
+.keys-sharp {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 53px;
+	right: 53px;
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+}
+.piano-key.sharp {
+	width: 54px;
+	height: 170px;
+	background-color: @grey;
+	border: 0;
+	border-radius: 0px 0px 9px 9px;
+	top: 0;
+	z-index: 3;
+	pointer-events: auto;
+	transform-origin: center top;
+}
+.piano-key.piano-key-active,
+.piano-key.sharp.piano-key-active {
+	transform: scale(0.96);
+}
+.piano-key.none {
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	pointer-events: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: @grey;
+  opacity: 0.90;
+  z-index: 999;
+ 
+}
+
+.modal-window {
+  top: 15%;
+  left: 15%;
+  right: 25%;       
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 50px auto;
+  width: 85%;
+  min-width: 320px;
+  max-width: 600px;
+  padding: 15px 20px;
+  line-height: 130%;
+}
+
+#start {
+  display: block;
+  position: relative;
+  background-color: @blue;
+  border-color: @rose;
+  border-radius: 5px;
+  height: 50px;
+  width: 100px;
+  margin: 20px auto;
+  cursor: pointer;
+  &:hover{
+    font-size: 18px;
+    color: white;
+  }
+}
+
+#computer-keyboard {
+  font-size: 24px;
+}
+
+.letter {
+  display: inline-block;
+  border: 2px @rose solid;
+  border-radius: 5px;
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+}
+
+.key {
+  border: 2px solid white;
+  border-radius: 3px;
+  margin: 1px;
+}
+
+
+
+@media (max-width: 1000px) {
+  .synth__wrapper {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-areas: 
+    "synth about"
+    "reset reset"
+    "osc osc"
+    "filter lfo"
+    "adsr delay"
+    "type index"
+    "volume volume"
+    "visual visual"
+    "key key";
+    gap: 5px;              
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  .oscillator-one__on,
+  .oscillator-two__on {
+    margin: 0 70px;
+  }
+
+  .synth-type,
+  .model-index {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px; 
+  }
+
+  .model-index {
+    margin-left: 220px;
+  }
+}
+
